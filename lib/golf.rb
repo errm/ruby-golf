@@ -42,6 +42,6 @@ module Golf
   end
 
   def hole9(a)
-    a.sort.uniq.inject([]){|r,x|r.empty?||r.last.last.succ != x ? r << (x..x) : r[0..-2] << (r.last.first..x) }.map{|r|r.first==r.last ? r.first.to_s : "#{r.first}-#{r.last}" }
+    a.inject([]){|r,x|!r.any?||r.last.last.succ!=x ?r << (x..x):r[0..-2] << (r.last.first..x) }.map{|r|r.first==r.last ? r.first.to_s: "#{r.first}-#{r.last}"}
   end
 end
